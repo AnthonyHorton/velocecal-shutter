@@ -41,13 +41,9 @@ if __name__ == "__main__":
     wait_time = (args.totaltime - args.opentime) / (args.nopen - 1)
 
     time.sleep(args.delay)
-    shutter.on()
-    time.sleep(exposure)
-    shutter.off()
+    shutter.blink(on_time=exposure, off_time=0, n=1, background=False)
     for i in range(args.nopen - 1):
         time.sleep(wait_time)
-        shutter.on()
-        time.sleep(exposure)
-        shutter.off()
+        shutter.blink(on_time=exposure, off_time=0, n=1, background=False)
 
     shutter.close()
