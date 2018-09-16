@@ -1,4 +1,5 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
+from __future__ import print_function, division, unicode_literals, absolute
 import argparse
 import time
 import os
@@ -7,15 +8,15 @@ import os
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Script to operate the VeloceCal shutter')
     parser.add_argument('--nopen', '-n',
-                        help='Number of times to open the shutter',
+                        help='Number of times to open the shutter, default 2',
                         type=int,
                         default=2)
     parser.add_argument('--delay', '-d',
-                        help='Delay, in seconds, before starting the shutter sequence',
+                        help='Delay, in seconds, before starting the shutter sequence, default 0',
                         type=float,
                         default=0)
     parser.add_argument('--host',
-                        help='Hostname or IP address of the Raspberry Pi controling the shutter',
+                        help='Hostname or IP address of the Raspberry Pi controlling the shutter',
                         default='10.88.21.151')
     parser.add_argument('opentime',
                         help='Total time to keep the shutter open for, in seconds',
