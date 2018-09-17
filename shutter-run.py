@@ -39,7 +39,10 @@ if __name__ == "__main__":
     shutter = DigitalOutputDevice(pin=27, pin_factory=remote_pin_factory)
 
     exposure = args.opentime / args.nopen
-    wait_time = (args.totaltime - args.opentime) / (args.nopen - 1)
+    if args.nopen > 1:
+        wait_time = (args.totaltime - args.opentime) / (args.nopen - 1)
+    else:
+        wait_time = 0
 
     time.sleep(args.delay)
     shutter.blink(on_time=exposure, off_time=0, n=1, background=False)
